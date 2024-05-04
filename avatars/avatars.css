@@ -1,0 +1,136 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variable */
+:root {
+  --avatar-size: 64px;
+  --avatar-margin: 20px;
+  --gray-color: #DBDBDB;
+  --green-color: #4CFE88;
+}
+
+/* 화면 정가운데에 배치 */
+body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* avatar css */
+.avatar {
+  position: relative;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+}
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avatar .status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--avatar-size)/4); /* 16px */
+  height: calc(var(--avatar-size)/4); /* 16px */
+  background-color: var(--green-color);
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+/* status on,off css */
+.avatar.is-on .status {
+  background-color: var(--green-color);
+}
+.avatar.is-off .status {
+  background-color: var(--gray-color);
+}
+
+/* ===== 방법1 ===== */
+/* avatar layout */
+/* .avatar-wrap {
+  display: flow-root;
+  width: calc(var(--avatar-size) * 4 + var(--avatar-margin) * 3);
+}
+.avatar {
+  float: left;
+  margin-right: var(--avatar-margin);
+  margin-bottom: var(--avatar-margin);
+}
+.avatar:nth-child(4n) {
+  margin-right: 0;
+}
+.avatar:nth-child(n+5) {
+  margin-bottom: 0;
+} */
+
+/* ===== 방법2 ===== */
+/* avatar layout */
+.avatar-wrap {
+  display: flow-root;
+  /* width: calc(var(--avatar-size) * 4 + var(--avatar-margin) * 3); */
+}
+.avatar-wrap:first-child {
+  margin-bottom: var(--avatar-margin);
+}
+.avatar {
+  float: left;
+  margin-right: var(--avatar-margin);
+}
+.avatar:nth-child(4n) {
+  margin-right: 0;
+}
+
+/* ------------------------------------------------ */
+/*      flex를 지원하는 웹브라우저를 위한 스타일      */
+/* ------------------------------------------------ */
+@supports (display:flex) {
+  /* ===== 방법1 ===== */
+  /* .avatar-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--avatar-size) * 4 + var(--avatar-margin) * 3);
+  }
+  .avatar {
+    float: none;
+    margin-right: var(--avatar-margin);
+    margin-bottom: var(--avatar-margin);
+  }
+  .avatar:nth-child(4n) {
+    margin-right: 0;
+  }
+  .avatar:nth-child(n+5) {
+    margin-bottom: 0;
+  } */
+
+  /* ===== 방법2 ===== */
+  body {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    /* flex-direction: column-reverse; */
+  }
+  .avatar-wrap {
+    display: flex;
+  }
+  .avatar-wrap:nth-child(2) {
+    margin-bottom: 20px;
+  }
+  .avatar {
+    float: none;
+    margin-right: var(--avatar-margin);
+  }
+  .avatar:nth-child(4n) {
+    margin-right: 0;
+  }
+  .avatar-wrap:first-child {
+    margin-bottom: 0;
+  }
+}
