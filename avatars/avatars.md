@@ -262,7 +262,7 @@ body {
 * @supports (display:flex)에서 .avatar-wrap:first-child를 준 이유는 위의 float떄의 margin-bottom이 남아있기 때문이다.
 
 ## <결과물>
-![alt text](image-1.png)
+![image](https://github.com/hyesom2/homework/assets/123542438/87710807-e2a8-4277-9df9-2b18a86330c3)
 * 간단한 HTML, CSS 작업 같지만 flexbox를 많이 사용하다보니 float를 사용할 때 요소들의 배치에 고민을 많이 하게 되는 과제였다.
 * 중복되는 값들을 root 가상클래스 변수로 만들어서 사용하면 유지보수에 좋을 꺼 같다는 생각이 들었다.
 * javascript를 사용하게 될 때 status의 상태를 어떻게 하면 효율적으로 적용할 수 있을까도 고민을 했다.
