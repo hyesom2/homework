@@ -1,1 +1,55 @@
 <!-- HTML 마크업을 작성해 주세요 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>네이버 : 로그인</title>
+  <link rel="stylesheet" href="./naver.css" />
+</head>
+<body>
+  <!-- ===== logo ===== -->
+  <figure class="logo">
+    <img srcset="./logo.svg" src="./logo.png" alt="네이버로고" />
+    <figcaption class="sr-only">네이버로고</figcaption>
+  </figure>
+
+  <section class="login">
+    <h2 class="sr-only">로그인</h2>
+
+    <!-- ===== login ===== -->
+    <form action="/" class="form-login">
+      <fieldset>
+        <legend class="sr-only">로그인폼</legend>
+
+        <div role="group" class="form-input">
+          <label for="userEmail" class="sr-only">아이디</label>
+          <input type="email" id="userEmail" placeholder="아이디(이메일)" name="userEmail" required />
+        </div>
+        <div role="group" class="form-input">
+          <label for="userPassword" class="sr-only">비밀번호</label>
+          <input type="password" id="userPassword" placeholder="비밀번호" name="userEmail" required />
+        </div>
+        <button type="submit" class="login-button">로그인</button>
+      </fieldset>
+    </form>
+
+    <!-- 하단 security -->
+    <ul class="login-security">
+      <li class="form-checkout">
+        <input type="checkbox" id="login-status" name="login-status" />
+        <label for="login-status">로그인 상태유지</label>
+      </li>
+      <li class="ip-toggle">
+        <a href="./ip_security.html" target="_blank">IP 보안</a>
+        <div class="ip-toggle-group">
+          <input type="checkbox" id="toggle-on" checked />
+          <label for="toggle-on" class="is-on">ON</label>
+          <input type="checkbox" id="toggle-off" class="sr-only" />
+          <label for="toggle-off" class="is-off">OFF</label>
+        </div>
+      </li>
+    </ul>
+  </section>
+</body>
+</html>

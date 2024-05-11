@@ -1,1 +1,268 @@
-/* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+/* 글자 크기 및 여백(margin 및 padding)은 모두 rem 단위로 설정할 것) */
+/* variable */
+:root {
+  --base-color: #181818;
+  /* --base-fontSize: 16px; */
+  --base-fontSize: 16px;
+  --focus-color: #24388d;
+  --primary-color: #03cf5d;
+}
+
+/* reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+
+  &:focus, &:focus-visible {
+    outline: 2px solid var(--focus-color);
+  }
+}
+
+html, body {
+  font-size: 1rem;
+  color: var(--base-color);
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  inline-size: 100vw;
+  height: 100vh;
+  block-size: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+input {
+  margin: 0;
+  border: none;
+  appearance: none;
+}
+
+.sr-only {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  inline-size: 1px;
+  height: 1px;
+  block-size: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* logo */
+.logo {
+  display: block;
+  width: 14.375rem;
+  inline-size: 14.375rem;
+  margin-bottom: 3rem;
+}
+.logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* login */
+.login {
+  width: 100%;
+  padding: 0 1.25rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.form-login {
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 31.25rem; /* 500px */
+    padding: 0 1.25rem;  }
+
+  fieldset {
+    border: none;
+  }
+}
+
+.form-input {
+  --outline-color: #dadada;
+  --input-bg-color: #fff;
+  --input-focus-bg-color: #e9f0fd;
+
+  margin-bottom: 0.5rem;
+
+  input {
+    width: 100%;
+    height: 2.8125rem;
+    font-size: 0.875rem;
+    outline: 1px solid var(--outline-color);
+    border-radius: 0.375rem;
+    background-color: var(--input-bg-color);
+    padding: 0.875rem 1.125rem;
+  
+    &:focus {
+      outline-color: var(--primary-color);;
+      background-color: var(--input-focus-bg-color);
+    }
+  }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.login-button {
+  --button-accent-color: #09aa5c;
+
+  width: 100%;
+  height: 2.8125rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  margin-top: 0.75rem;
+  border-radius: 0.375rem;
+  transition: background-color 300ms ease-in-out;
+
+  &:hover {
+    background-color: var(--button-accent-color);;
+  }
+}
+
+/* security checkbox */
+.login-security {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0.625rem;
+
+
+  @media (min-width: 768px) {
+    width: 31.25rem;
+    padding: 0 1.25rem;
+    justify-content: space-between;
+  }
+}
+
+.form-checkout {
+  position: relative;
+  display: flex;
+  align-items: center;    
+
+  input {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  label {
+    position: relative;
+    background-image: url('./icons/unchecked.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+    padding-left: 1.8125rem; /* 24px + 5px */
+    transition: all 300ms ease-in-out;
+  }
+
+  input:checked + label {
+    background-image: url('./icons/checked.svg');
+  }
+}
+
+.ip-toggle {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: flex;
+
+    a {
+      display: inline-block;
+      color: var(--base-color);
+      font-size: var(--base-fontSize);
+      white-space: nowrap;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    .ip-toggle-group {
+      --toggle-off-color: gray;
+      
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      
+      input {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      label {
+        display: none;
+        cursor: pointer;
+
+        &.is-on {
+          color: var(--primary-color);
+        }
+
+        &.is-off {
+          color: var(--toggle-off-color);
+        }
+      }
+
+      input[id="toggle-on"]:checked + .is-on {
+        display: block;
+      }
+      input[id="toggle-on"]:not(:checked) + .is-on {
+        display: none;
+      }
+      input[id="toggle-on"]:checked ~ .is-off {
+        display: none;
+      }
+      input[id="toggle-on"]:not(:checked) ~ .is-off {
+        display: block;
+      }
+
+      /* input:not(:checked)::before {
+        content: 'OFF';
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        color: var(--toggle-off-color);
+      } */
+    }
+  }
+}
