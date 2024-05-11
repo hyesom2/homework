@@ -125,7 +125,7 @@ input {
     padding: 0.875rem 1.125rem;
   
     &:focus {
-      outline-color: var(--primary-color);;
+      outline-color: var(--primary-color);
       background-color: var(--input-focus-bg-color);
     }
   }
@@ -221,6 +221,7 @@ button {
       
       input {
         position: absolute;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
@@ -240,29 +241,22 @@ button {
         }
       }
 
-      input[id="toggle-on"]:checked + .is-on {
+      input[id="toggle-on"]:checked ~ .is-on,
+      input[id="toggle-on"] {
         display: block;
       }
-      input[id="toggle-on"]:not(:checked) + .is-on {
+      input[id="toggle-on"]:not(:checked) ~ .is-on,
+      input[id="toggle-off"] {
         display: none;
       }
-      input[id="toggle-on"]:checked ~ .is-off {
-        display: none;
-      }
-      input[id="toggle-on"]:not(:checked) ~ .is-off {
+      input[id="toggle-on"]:not(:checked) ~ .is-off,
+      input[id="toggle-off"] {
         display: block;
       }
-
-      /* input:not(:checked)::before {
-        content: 'OFF';
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        color: var(--toggle-off-color);
-      } */
+      input[id="toggle-off"]:checked ~ .is-off,
+      input[id="toggle-off"] {
+        display: none;
+      }
     }
   }
 }
