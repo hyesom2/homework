@@ -4,3 +4,4 @@
 ---
 
 ## 1. [과제1_아바타만들기](https://github.com/hyesom2/homework/blob/main/avatars/avatars.md)
+## 2. [과제2_네이버페이지만들기](https://github.com/hyesom2/homework/blob/main/naver/naver.md)
