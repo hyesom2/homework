@@ -9,10 +9,14 @@
 </head>
 <body>
   <!-- ===== logo ===== -->
-  <figure class="logo">
-    <img srcset="./logo.svg" src="./logo.png" alt="네이버로고" />
-    <figcaption class="sr-only">네이버로고</figcaption>
-  </figure>
+  <h1 class="logo">
+    <a href="/">
+      <picture>
+        <source srcset="./logo.png" />
+        <img src="./logo.svg" alt="네이버로고" />
+      </picture>
+    </a>
+  </h1>
 
   <section class="login">
     <h2 class="sr-only">로그인</h2>
@@ -30,26 +34,24 @@
           <label for="userPassword" class="sr-only">비밀번호</label>
           <input type="password" id="userPassword" placeholder="비밀번호" name="userEmail" required />
         </div>
+
+        <ul class="login-security">
+          <li class="form-checkout">
+            <input type="checkbox" id="login-status" name="login-status" />
+            <label for="login-status">로그인 상태유지</label>
+          </li>
+          <li class="ip-toggle">
+            <a href="./ip_security.html" target="_blank" rel="noopener noreferrer">IP 보안</a>
+            <div action="/" class="ip-toggle-group">
+              <input type="checkbox" id="toggle-on" value="ip_security-on" name="ip_security-on" checked />
+              <label for="toggle-on"></label>
+            </div>
+          </li>
+        </ul>
+
         <button type="submit" class="login-button">로그인</button>
       </fieldset>
     </form>
-
-    <!-- 하단 security -->
-    <ul class="login-security">
-      <li class="form-checkout">
-        <input type="checkbox" id="login-status" name="login-status" />
-        <label for="login-status">로그인 상태유지</label>
-      </li>
-      <li class="ip-toggle">
-        <a href="./ip_security.html" target="_blank">IP 보안</a>
-        <div class="ip-toggle-group">
-          <input type="checkbox" id="toggle-on" name="on" checked/>
-          <label for="toggle-on" class="is-on">ON</label>
-          <input type="checkbox" id="toggle-off" name="off" />
-          <label for="toggle-off" class="is-off">OFF</label>
-        </div>
-      </li>
-    </ul>
   </section>
 </body>
 </html>

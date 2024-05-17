@@ -1,8 +1,6 @@
-/* 글자 크기 및 여백(margin 및 padding)은 모두 rem 단위로 설정할 것) */
 /* variable */
 :root {
   --base-color: #181818;
-  /* --base-fontSize: 16px; */
   --base-fontSize: 16px;
   --focus-color: #24388d;
   --primary-color: #03cf5d;
@@ -52,6 +50,11 @@ input {
   appearance: none;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 .sr-only {
   position: absolute;
   top: -9999px;
@@ -69,20 +72,20 @@ input {
   border-width: 0;
 }
 
-/* logo */
+/* ====== logo ===== */
 .logo {
   display: block;
   width: 14.375rem;
   inline-size: 14.375rem;
   margin-bottom: 3rem;
 }
-.logo img {
+.logo a {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* login */
+/* ===== login ===== */
 .login {
   width: 100%;
   padding: 0 1.25rem;
@@ -99,12 +102,17 @@ input {
 .form-login {
   width: 100%;
 
+  fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+
   @media (min-width: 768px) {
     width: 31.25rem; /* 500px */
-    padding: 0 1.25rem;  }
-
-  fieldset {
-    border: none;
+    padding: 0 1.25rem;  
   }
 }
 
@@ -113,6 +121,7 @@ input {
   --input-bg-color: #fff;
   --input-focus-bg-color: #e9f0fd;
 
+  width: 100%;
   margin-bottom: 0.5rem;
 
   input {
@@ -129,11 +138,6 @@ input {
       background-color: var(--input-focus-bg-color);
     }
   }
-}
-
-button {
-  border: none;
-  cursor: pointer;
 }
 
 .login-button {
@@ -158,12 +162,11 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   margin-top: 0.625rem;
-
+  order: 3;
 
   @media (min-width: 768px) {
-    width: 31.25rem;
-    padding: 0 1.25rem;
     justify-content: space-between;
   }
 }
@@ -229,7 +232,6 @@ button {
       }
 
       label {
-        display: none;
         cursor: pointer;
 
         &.is-on {
@@ -240,23 +242,15 @@ button {
           color: var(--toggle-off-color);
         }
       }
-
-      input[id="toggle-on"]:checked ~ .is-on,
-      input[id="toggle-on"] {
-        display: block;
-      }
-      input[id="toggle-on"]:not(:checked) ~ .is-on,
-      input[id="toggle-off"] {
-        display: none;
-      }
-      input[id="toggle-on"]:not(:checked) ~ .is-off,
-      input[id="toggle-off"] {
-        display: block;
-      }
-      input[id="toggle-off"]:checked ~ .is-off,
-      input[id="toggle-off"] {
-        display: none;
-      }
     }
   }
-}
+
+  input[type="checkbox"]:checked + label::before {
+    content: 'ON';
+    display: block;
+    color: var(--primary-color);
+  }
+  input[type="checkbox"] + label::before {
+    content: 'OFF';
+    display: block;
+  }
