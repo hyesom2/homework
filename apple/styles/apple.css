@@ -1,3 +1,187 @@
-/* 카드 레이아웃 */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./theme.css');
 
-/* 카드 컴포넌트 */
+/* card layout */
+.container, .top, .bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--base-spacing);
+}
+
+.container {
+  @media (min-width: 1024px) {
+    gap: 0;
+  }
+}
+
+.bottom {
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--base-spacing);
+  }
+}
+
+/* card component */
+.card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  inline-size: 100%;
+  min-height: var(--size);
+  height: 100%;
+  block-size: 100%;
+  padding-top: var(--large-spacing);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 100%;
+
+  h2 {
+    font-size: var(--large-text);
+    font-weight: 700;
+    margin-bottom: var(--small-spacing);
+  }
+
+  p {
+    font-size: var(--base-text);
+    line-height: var(--line-normal);
+    margin-bottom: var(--x-small-spacing);
+    text-align: center;
+
+    &.is-desktop {
+      display: none;
+    }
+  }
+  
+  span {
+    font-size: var(--small-text);
+    color: var(--gray);
+    margin-bottom: var(--x-small-spacing);
+  }
+
+  .link-group {
+    position: relative;
+    z-index: 100;
+  }
+
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--xx-small-text);
+    color: var(--white);
+    padding: var(--x-small-spacing) var(--small-spacing);
+    margin-right: var(--small-spacing);
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition: all 300ms ease-in-out;
+
+    &:last-child {
+      background-color: transparent;
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: var(--extra-large-spacing);
+    height: 580px;
+
+    h2 {
+      font-size: var(--extra-large-text);
+    }
+
+    p {
+      font-size: var(--medium-text);
+    }
+
+    &.ipad-pro, &.airpods-pro, &.iphone15 {
+      p {
+        display: none;
+      }
+      
+      p.is-desktop {
+        display: block;
+      }
+    }
+
+    a {
+      font-size: var(--x-small-text);
+    }
+  }
+}
+
+/* 7. background-image for each component */
+.ipad-pro {
+  background-image: image-set(url('../products/ipad_pro.jpeg') 1x, url('../products/ipad_pro_2x.jpeg') 2x);
+  
+  @media (min-width: 1024px) {
+    background-image: image-set(url('../products/ipad_pro_wide.jpeg') 1x, url('../products/ipad_pro_wide_2x.jpeg') 2x);
+  }
+}
+.ipad-air {
+  background-image: image-set(url('../products/ipad_air.jpeg') 1x, url('../products/ipad_air_2x.jpeg') 2x);
+  
+  @media (min-width: 1024px) {
+    background-image: image-set(url('../products/ipad_air_wide.jpeg') 1x, url('../products/ipad_air_wide_2x.jpeg') 2x);
+  }
+}
+.iphone15-pro {
+  background-image: image-set(url('../products/iphone15_pro.jpeg') 1x, url('../products/iphone15_pro_2x.jpeg') 2x);
+  
+  @media (min-width: 1024px) {
+    background-image: image-set(url('../products/iphone15_pro_wide.jpeg') 1x, url('../products/iphone15_pro_wide_2x.jpeg') 2x);
+  }
+}
+.iphone15 {
+  background-image: image-set(url('../products/iphone15.jpeg') 1x, url('../products/iphone15_2x.jpeg') 2x);
+}
+.apple-watch {
+  background-image: image-set(url('../products/apple_watch.jpeg') 1x, url('../products/apple_watch_2x.jpeg') 2x);
+}
+.macbook-air {
+  background-image: image-set(url('../products/macbook_air.jpeg') 1x, url('../products/macbook_air_2x.jpeg') 2x);
+}
+.airpods-pro {
+  background-image: image-set(url('../products/airpods_pro.jpeg') 1x, url('../products/airpods_pro_2x.jpeg') 2x);
+}
+
+/* 8. common element for card component */
+.ipad-pro, .iphone15-pro, .apple-watch, .airpods-pro {
+  color: var(--white);
+
+  a {
+    background-color: var(--blue-300);
+
+    &:last-child {
+      color: var(--blue-100);
+      border-color: var(--blue-100);
+    }
+
+    &:hover {
+      background-color: var(--blue-200);
+      color: var(--white);
+    }
+  }
+}
+.ipad-air, .iphone15, .macbook-air {
+  color: var(--black);
+
+  a {
+    background-color: var(--black);
+
+    &:last-child {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    &:hover {
+      background-color: #272729;
+      color: var(--white);
+    }
+  }
+}
