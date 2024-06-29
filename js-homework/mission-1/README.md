@@ -113,6 +113,7 @@ loginButton.addEventListener('click', function(e) {
 * 조건절로 email의 상태변수가 true 이면서 userEmailInput.value와 user.id가 일치한 경우, pw의 상태변수가 true 이면서 userPwInput.value와 user.pw가 일치한 경우 welcome.html로 이동
 * 조건에 맞지 않는 경우 alert창을 띄워준다.
 
+---
 
-
-
+### 결과 )
+![2024-06-2303-41-15-ezgif com-video-to-gif-converter](https://github.com/hyesom2/homework/assets/123542438/9a9e47c0-cd5e-439b-904a-249307d0ece8)
