@@ -16,3 +16,6 @@
 
 ## 2. mission-1
 * [mission-1_READMD파일](https://github.com/hyesom2/homework/blob/main/js-homework/mission-1/README.md)
+
+## 3. mission-2
+* [mission-1_READMD파일](https://github.com/hyesom2/homework/blob/main/js-homework/mission-2/READMD.md)
