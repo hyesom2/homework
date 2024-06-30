@@ -1,0 +1,112 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.swiper {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  overflow: visible !important;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px !important;
+  height: 100%;
+  perspective: 1100px;
+  /* text-align: center; */
+  font-size: 18px;
+  margin-left: -50px;
+  cursor: pointer;
+
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%; 
+  height: 100%; 
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out;
+
+  &.is-clicked {
+    transform: translateY(100px);
+  }
+
+  &.is-open {
+    transform: rotateY(180deg);
+  }
+}	
+
+.front, .back {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+
+.back {
+  background-image: url('https://i.namu.wiki/i/6VbNGPKLvEtYHmVY9JUsp8k402tmH1euhwN0UyI2sCJpKGyltHpzGZRwN0LSo7RoHuo4bZTXJnyqac15QRuPpADxFPDq3qSWRRHIaWdgpaUcojU0_hGuOjMkBm3Mz5aNkvmXA2xGFv20TNTb5b5GqA.webp');
+  
+}
+
+.front {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  transform: rotateY(180deg);
+}
+
+
+.container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 200px;
+  border: 2px dashed #000;
+  transition: all 300ms ease-in-out;
+  
+  &.is-selected {
+    background-image: url('https://i.namu.wiki/i/6VbNGPKLvEtYHmVY9JUsp8k402tmH1euhwN0UyI2sCJpKGyltHpzGZRwN0LSo7RoHuo4bZTXJnyqac15QRuPpADxFPDq3qSWRRHIaWdgpaUcojU0_hGuOjMkBm3Mz5aNkvmXA2xGFv20TNTb5b5GqA.webp');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+  }
+  
+  &.is-selected.is-open {
+    transform: rotateY(180deg);
+  }
+}
