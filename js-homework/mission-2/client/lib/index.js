@@ -1,1 +1,1 @@
-export * from './dom/css.js';
+export * from './dom/fn.js';
