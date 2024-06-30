@@ -10,9 +10,14 @@ body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-image: url('https://i.namu.wiki/i/YuYfvyUYrCu3fb2pG1NS25Qb3ykMH8m2U_ygoSXqp0CO8h2irHwcjykFj98PMX5POYU5fWaKUQhgwbl6x6uYsA.webp');
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: contain;
 }
 
 .swiper {
